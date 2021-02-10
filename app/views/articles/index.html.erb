@@ -1,0 +1,54 @@
+<div class="row">
+<div class="col-md-9"><h1><%= User.first.email %></h1></div>
+<div class="col-md-3"><h1>
+<% if user_signed_in? %>
+  <button class="btn btn-danger" style="color:white">
+  <p style="color:white"><%= link_to "logout", destroy_user_session_path,method: :delete %></p>
+  </button>
+<% end %>
+</h1></div>
+</div>
+<h1 style="width:100%;margin:auto" >Articles</h1>
+<div class="row">
+<div class="col-md-3"><h1>Title</h1></div>
+<div class="col-md-3"><h1>Body</h1></div>
+<div class="col-md-3"><h1>Image</h1></div>
+<div class="col-md-3"><h1>Created By</h1></div>
+</div>
+ <% @articles.each do |article| %>
+
+<div class="row">
+<div class="col-md-3"><h3><%= link_to article.title, article %></h3></div>
+<div class="col-md-3"><%= article.user.email %></div>
+</div>
+
+
+
+<% end %>
+
+
+<% if user_signed_in? %>
+  <%= link_to destroy_user_session_path, method: :delete, class: "btn  btn-danger btn-xlg" do%>
+  <span style="color: white">Logout</span>
+  <% end %>
+<% end %>
+
+
+
+<%= link_to "New Article", new_article_path %>
+<% if !user_signed_in? %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+  <%= link_to "Sign In", new_user_session_path %>
+<% end %>
+
+<% @results.each do |ar|%>
+<div class="row">
+
+<div class="col-sm-3" style="border: 1px solid black"><%= ar["title"]%></div>
+<div class="col-sm-3" style="border: 1px solid black"><%= ar["body"]%></div>
+</div>
+<br>
+
+<% end %>
+
+
