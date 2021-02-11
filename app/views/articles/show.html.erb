@@ -8,7 +8,8 @@
 <div class="row">
 <div class="col-md-3"><h3><%= @article.title %></h3></div>
 <div class="col-md-3"><p><%= @article.body %></p></div>
-<div class="col-md-3"><%= image_tag @article.image.url(:thumb)%></div>
+<div class="col-md-3"><%= image_tag @article.image.url(:thumb)%> <%= link_to "download", @article.image.url(:thumb), download: true %>
+</div>
 <div class="col-md-3"><%= @article.user.email %></div>
 </div>
 
