@@ -1,15 +1,15 @@
-<% 
+<%# <% 
 baseaddress = ""
 def myfunction
   require 'open-uri'
-img = open("https://lolaandvan-staging.s3.amazonaws.com/uploads/jetstager_room_image/images_url/12/mini_thumb_death.jpg")
+img = open("")
 require 'base64'
 baseaddress = Base64.encode64(img.read)
 baseaddress = "data:image/jpeg;base64,"+baseaddress
 return baseaddress
 end 
-%>
-<%= link_to "click", baseaddress, download: true%>
+%> %>
+<%# <%= link_to "click", baseaddress, download: true%> %>
 <%
 require 'open-uri'
 img = open("https://meo-fb-natal-dev.s3.amazonaws.com/participations/cropped/56658c5de2fc7116340000c0/635769180217506883-GD5A9264.jpg?1449495643")
@@ -56,30 +56,41 @@ baseaddress = "data:image/jpeg;base64,"+baseaddress
     <div class="col-md-3"><%= article.user.email %></div>
   </div>
 <% end %>
-<%
+<%# <%
                 require 'open-uri'
                 img = open("https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8cGljfGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80")
                 require 'base64'
                 user_image_address = Base64.encode64(img.read)
                 user_image_address = "data:image/jpeg;base64,"+user_image_address
             %>
-<%= link_to user_image_address, class: "pull-right", download: true do%>
-  <i class="fa fa-download"></i>
-<% end %>
-<% if user_signed_in? %>
-  <%= link_to destroy_user_session_path, method: :delete, class: "btn  btn-danger" do%>
-    <span style="color: white">Logout</span>
+<%# <%= link_to user_image_address, class: "pull-right", download: true do%>
+  <%# <i class="fa fa-download"></i> %>
+  <%# <% end %> %> %> %>
+  <% if user_signed_in? %>
+    <%= link_to destroy_user_session_path, method: :delete, class: "btn  btn-danger" do%>
+      <span style="color: white">Logout</span>
+    <% end %>
   <% end %>
-<% end %>
-<%= link_to "New Article", new_article_path %>
-<% if !user_signed_in? %>
-  <%= link_to "Sign Up", new_user_registration_path %>
-  <%= link_to "Sign In", new_user_session_path %>
-<% end %>
-<% @results.each do |ar|%>
-  <div class="row">
-    <div class="col-sm-3" style="border: 1px solid black"><%= ar["title"]%></div>
-    <div class="col-sm-3" style="border: 1px solid black"><%= ar["body"]%></div>
-  </div>
-  <br>
-<% end %>
+  <%= link_to "New Article", new_article_path %>
+  <% if !user_signed_in? %>
+    <%= link_to "Sign Up", new_user_registration_path %>
+    <%= link_to "Sign In", new_user_session_path %>
+  <% end %>
+  <%# <% @results.each do |ar|%>
+    <%# <div class="row"> %>
+    <%# <div class="col-sm-3" style="border: 1px solid black"><%= ar["title"]%></div>
+  %>
+  <%# <div class="col-sm-3" style="border: 1px solid black"><%= ar["body"]%></div>
+%>
+<%# </div> %>
+<%# <br> %>
+<%# <% end %> %> %>
+<button class="btn btn-primary mybtn" >click to work with js</button>
+<script>
+  $(document).ready(()=>{
+    $(".mybtn").click(function(){
+      $("*").css({"background-color":"grey","color":"white","border-color":"grey"})
+    })
+  
+  })
+</script>
